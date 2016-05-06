@@ -8,10 +8,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.bagon.matchteam.Screens.InputScreen;
 
-//Hello World!!
 public class MatchTeam extends Game {
 
-// I'm kkk
 	public void create() {
 		this.setScreen(new InputScreen(this));
 	}
