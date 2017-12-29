@@ -37,6 +37,7 @@ public class InputScreen implements Screen {
 
         //=== Initial Data ===
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+        skin.getFont("default-font").getData().setScale(2f);
 //        Skin skin = new Skin();
         float screenX = Gdx.graphics.getWidth();
         float screenY = Gdx.graphics.getHeight();
@@ -47,7 +48,7 @@ public class InputScreen implements Screen {
         txtNumPeople.setTextFieldFilter(new TextField.TextFieldFilter.DigitsOnlyFilter());
 
         lblPeople = new Label("People", skin);
-        lblPeople.setPosition(txtNumPeople.getX() - 200, (screenY/2) + 70);
+        lblPeople.setPosition(txtNumPeople.getX() - 230, (screenY/2) + 70);
 
         txtNumTeam = new TextField("", skin);
         txtNumTeam.setSize(600, 120);
@@ -55,7 +56,7 @@ public class InputScreen implements Screen {
         txtNumTeam.setTextFieldFilter(new TextField.TextFieldFilter.DigitsOnlyFilter());
 
         lblTeam = new Label("Team", skin);
-        lblTeam.setPosition(txtNumTeam.getX() - 200, (screenY/2) - 70);
+        lblTeam.setPosition(txtNumTeam.getX() - 230, (screenY/2) - 70);
 
         btnSubmit = new TextButton("Generate!", skin);
         btnSubmit.setSize(600, 120);

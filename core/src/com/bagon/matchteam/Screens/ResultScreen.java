@@ -108,6 +108,9 @@ public class ResultScreen implements Screen {
 
         Table table = new Table();
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+
+        skin.getFont("default-font").getData().setScale(2f);
+
         final ArrayList<TextButton> lstButton = new ArrayList<TextButton>();
 
         float screenX = Gdx.graphics.getWidth();
@@ -118,7 +121,7 @@ public class ResultScreen implements Screen {
 
             if( i % 4 == 0)
             {
-                table.row().height(200);
+                table.row().height(250);
             }
 
             final TextButton tb = new TextButton(Integer.toString(i + 1), skin);
@@ -139,7 +142,7 @@ public class ResultScreen implements Screen {
                 }
             });
 
-            table.add(tb).expandX().fill().space(20);
+            table.add(tb).expandX().fill().space(25);
         }
 
         table.setFillParent(true);
