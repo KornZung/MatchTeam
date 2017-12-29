@@ -10,10 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
@@ -27,6 +24,8 @@ public class InputScreen implements Screen {
     private Texture img;
     private TextField txtNumPeople;
     private TextField txtNumTeam;
+    private Label lblPeople;
+    private Label lblTeam;
     private final TextButton btnSubmit;
 
     public InputScreen (Game g)
@@ -43,18 +42,24 @@ public class InputScreen implements Screen {
         float screenY = Gdx.graphics.getHeight();
 
         txtNumPeople = new TextField("", skin);
-        txtNumPeople.setSize(300, 60);
-        txtNumPeople.setPosition((screenX/2) - 150,(screenY/2) + 35);
+        txtNumPeople.setSize(600, 120);
+        txtNumPeople.setPosition((screenX/2) - 150,(screenY/2) + 70);
         txtNumPeople.setTextFieldFilter(new TextField.TextFieldFilter.DigitsOnlyFilter());
 
+        lblPeople = new Label("People", skin);
+        lblPeople.setPosition(txtNumPeople.getX() - 200, (screenY/2) + 70);
+
         txtNumTeam = new TextField("", skin);
-        txtNumTeam.setSize(300, 60);
-        txtNumTeam.setPosition((screenX/2) - 150,(screenY/2) - 35);
+        txtNumTeam.setSize(600, 120);
+        txtNumTeam.setPosition((screenX/2) - 150,(screenY/2) - 70);
         txtNumTeam.setTextFieldFilter(new TextField.TextFieldFilter.DigitsOnlyFilter());
 
+        lblTeam = new Label("Team", skin);
+        lblTeam.setPosition(txtNumTeam.getX() - 200, (screenY/2) - 70);
+
         btnSubmit = new TextButton("Generate!", skin);
-        btnSubmit.setSize(300, 60);
-        btnSubmit.setPosition((screenX/2) - 150,(screenY/2) - 105);
+        btnSubmit.setSize(600, 120);
+        btnSubmit.setPosition((screenX/2) - 150,(screenY/2) - 250);
         btnSubmit.addListener(new ChangeListener(){
            @Override
 //            public void touchUp(InputEvent e, float x , float y, int point, int button){
@@ -66,6 +71,8 @@ public class InputScreen implements Screen {
         stage.addActor(txtNumPeople);
         stage.addActor(txtNumTeam);
         stage.addActor(btnSubmit);
+        stage.addActor(lblPeople);
+        stage.addActor(lblTeam);
     }
 
     @Override

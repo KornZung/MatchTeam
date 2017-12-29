@@ -3,6 +3,7 @@ package com.bagon.matchteam.Screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector3;
@@ -57,14 +58,14 @@ public class ResultScreen implements Screen {
         float screenY = Gdx.graphics.getHeight();
 
         lblPeople = new Label(Integer.toString(people), skin);
-        lblPeople.setPosition((screenX/2) - 150,(screenY/2) + 35);
+        lblPeople.setPosition((screenX/2) - 150, (screenY - 60));
 
-        lblTeam = new Label(Integer.toString(people % team), skin);
-        lblTeam.setPosition((screenX/2) - 150,(screenY/2) - 35);
+        lblTeam = new Label(Integer.toString(team), skin);
+        lblTeam.setPosition((screenX/2) - 150, (screenY - 120));
 
         btnBack = new TextButton("Back", skin);
-        btnBack.setSize(80, 60);
-        btnBack.setPosition(0,(screenY - 60));
+        btnBack.setSize(160, 120);
+        btnBack.setPosition(0,(screenY - 120));
         btnBack.addListener(new ClickListener(){
             @Override
             public void touchUp(InputEvent e, float x , float y, int point, int button){
@@ -115,9 +116,9 @@ public class ResultScreen implements Screen {
         for (int i = 0; i < people; i++) {
             PeopleCard pc = lstPC.get(i);
 
-            if( i % 5 == 0)
+            if( i % 4 == 0)
             {
-                table.row().height(80);
+                table.row().height(200);
             }
 
             final TextButton tb = new TextButton(Integer.toString(i + 1), skin);
@@ -133,11 +134,12 @@ public class ResultScreen implements Screen {
                     PeopleCard pc = (PeopleCard) tb1.getUserObject();
 
                     tb1.setText(pc.getTeam());
+                    tb1.setColor(Color.RED);
 
                 }
             });
 
-            table.add(tb).expandX().fill().space(10);
+            table.add(tb).expandX().fill().space(20);
         }
 
         table.setFillParent(true);
